@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+string cutThemAll(vector<long> arr, long min) {
+    
+    for(int i = 0; i < arr.size(); i++) {
+        if(i != arr.size()-1 && arr[i] + arr[i+1] >= min) {
+            cout << arr[i] + arr[i+1] << endl;
+            return "Possible";
+        }
+    }
+    return "Impossible";
+}
+int main()
+{
+    vector<long> arr1 = {4,3,2};
+    long min1 = 7;
+    cout << cutThemAll(arr1, min1) << endl;
+    vector<long> arr2 = {4,2,3};
+    long min2 = 7;
+    cout << cutThemAll(arr2, min2) << endl;
+    vector<long> arr3 = {3,5,4,3};
+    long min3 = 9;
+    cout << cutThemAll(arr3, min3) << endl;
+    vector<long> arr4 = {5,6,2};
+    long min4 = 12;
+    cout << cutThemAll(arr4, min4) << endl;
+
+    return 0;
+}
