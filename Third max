@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool contains(vector<int> v, int n) {
+        for(int i = 0; i < v.size(); i++) {
+            if(v[i] == n) return true;
+        }
+        return false;
+    }
+    int thirdMax(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        
+        vector<int> res;
+        for(int i = 0; i < nums.size(); i++) {
+            if(!contains(res, nums[i])) 
+                res.push_back(nums[i]);
+        }
+        int n = res.size();
+        if(n == 1) return res[0];
+        if(n == 2) return res[1];
+        return res[n-3];
+    }
+};
